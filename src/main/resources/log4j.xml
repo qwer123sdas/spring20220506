@@ -34,6 +34,7 @@
 
 	<!-- Root Logger -->
 	<root>
+		<!-- 단계 조정  -->
 		<priority value="warn" />
 		<appender-ref ref="console" />
 	</root>
