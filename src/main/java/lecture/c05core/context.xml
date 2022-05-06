@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<bean class="lecture.c05core.MyServlet">
+		<!-- 주입  -->
+		<!-- setDao() / ref는 Dao 하위 객체를 가리킴.  -->
+		<property name="dao" ref="myDao"></property>
+	</bean>
+	
+	<!-- myDao에 주입 -->
+	<!-- id가 bean의 이름 -->
+	<bean id="myDao" class = "lecture.c05core.MyDao"></bean>
+</beans>

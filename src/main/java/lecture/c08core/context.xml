@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+	
+	<!-- @component라고 붙은 클라스를 모두 객체로 만들어준다. -->
+	<context:component-scan base-package="lecture.c08core"></context:component-scan>
+	<!-- lecture.c08core패키지 및 그 하위 패키지까지 살피고 객체로 만들어 준다. -->
+	<!-- bean만 만들어지고 주입은 안된 상태이다. -->
+		
+</beans>
