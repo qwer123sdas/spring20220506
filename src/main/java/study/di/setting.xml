@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	
+	<!-- Exam exam = new NewledcExam() -->
+	<bean id="exam" class="study.di.entity.NewlecExam">
+		<property name="kor" value="10"></property>
+		<property name="eng" value="10"></property>
+		<property name="math" value="10"></property>
+		<property name="com" value="10"></property>
+	</bean>
+	
+	<!-- ExamConsole console = new GridExamConsole() -->
+	<bean id="console" class="study.di.ui.GridExamConsole">
+		<!--console.setExam(exam)  -->
+		<property name="exam" ref="exam"></property>
+	</bean>
+</beans>
