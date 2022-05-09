@@ -1,5 +1,8 @@
 package org.zerock.controller.ex02;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
@@ -38,5 +41,69 @@ public class Ex04Controller {
 	@RequestMapping("sub04")
 	public void method04(@RequestParam("age") int age) {
 		System.out.println(age);
+	}
+	
+	@RequestMapping("sub05")
+	public void method05(HttpServletRequest request) {
+		//1. request parameter 수집/ 가공
+		String name = request.getParameter("name");
+		String ageStr = request.getParameter("age");
+		
+		int age = Integer.valueOf(ageStr);
+		
+		System.out.println(name);
+		System.out.println(age);
+	}
+	
+	@RequestMapping("sub06")
+	public void method06(@RequestParam("name") String name, @RequestParam int age) {
+		System.out.println(name);
+		System.out.println(age);
+	}
+	
+	@RequestMapping("sub07")
+	public void method07(String name, int age) {
+		System.out.println(name);
+		System.out.println(age);
+	}
+	
+	// http://localhost:8080/controller/ex04/sub08?address=seoul&number=300
+	@RequestMapping("sub08")
+	public void method08(String address, int number) {
+		System.out.println(address); // seoul
+		System.out.println(number);  // 300
+	}
+	
+	// http://localhost:8080/controller/ex04/sub09?password=1q2w3e&number=10000
+	@RequestMapping("sub09")
+	public void method09(@RequestParam("password") String pw, @RequestParam("number") int num) {
+		System.out.println(pw);  // 1q2w3e
+		System.out.println(num);  // 10000
+	}
+	
+	@RequestMapping("sub10")
+	public void method10(@RequestParam(value = "name", required = false) String name) {
+		System.out.println(name);
+	}
+	
+	
+	@RequestMapping("sub11")
+	public void method11(HttpServletRequest request) {
+		String[] foods = request.getParameterValues("food");
+		System.out.println(Arrays.toString(foods));
+	}
+	@RequestMapping("sub12")
+	public void method12(@RequestParam("food") String[] foods) {
+		System.out.println(Arrays.toString(foods));
+	}
+	
+	@RequestMapping("sub13")
+	public void method13(String[] food) {
+		System.out.println(Arrays.toString(food));
+	}
+	
+	@RequestMapping("sub14")
+	public void method14(@RequestParam("food") ArrayList<String> food) {
+		System.out.println(food);
 	}
 }
