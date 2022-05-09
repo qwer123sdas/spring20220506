@@ -82,7 +82,7 @@ public class Ex04Controller {
 	}
 	
 	@RequestMapping("sub10")
-	public void method10(@RequestParam(value = "name", required = false) String name) {
+	public void method10(@RequestParam(value = "name", required = true) String name) {
 		System.out.println(name);
 	}
 	
