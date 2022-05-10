@@ -30,7 +30,6 @@ public class Ex09Controller {
 	@RequestMapping("sub03")
 	public void method03(@ModelAttribute("address") String address, 
 			             @ModelAttribute("email") String email) {
-		
 	}
 	
 	// java beans
