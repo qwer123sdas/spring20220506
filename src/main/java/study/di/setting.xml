@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<beans xmlns="http://www.springframework.org/schema/beans"
+  <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xmlns:p="http://www.springframework.org/schema/p"
 	xmlns:context="http://www.springframework.org/schema/context"
@@ -17,7 +17,7 @@
 	<!-- ExamConsole console = new GridExamConsole() -->
 	<bean id="console" class="study.di.ui.GridExamConsole">
 		<!--console.setExam(exam)  -->
-		<property name="exam" ref="exam"></property>
+		<!-- <property name="exam" ref="exam"></property> -->
 	</bean>
 	
 	<!--  -->
@@ -34,4 +34,6 @@
 		<bean class="study.di.entity.NewlecExam" p:kor="10" p:eng="10"></bean>
 		<ref bean="exam"></ref>
 	</util:list>
+	
+	
 </beans>

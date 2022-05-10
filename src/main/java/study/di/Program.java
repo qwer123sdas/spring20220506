@@ -24,10 +24,8 @@ public class Program {
 		
 		// Object형으로 꺼내오기 때문에 형변환을 해야 한다.
 		ExamConsole console = (ExamConsole) context.getBean("console");
-		
 		// .class : 이 class타입과 이름에 맞는 녀석을 찾아달라는 것.
 		//ExamConsole console = context.getBean(ExamConsole.class);
-		
 		console.print();
 		
 		/*
