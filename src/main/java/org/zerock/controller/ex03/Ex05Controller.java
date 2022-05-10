@@ -21,6 +21,7 @@ public class Ex05Controller {
 		Customer cus = new Customer();
 		cus.setName(name);
 		cus.setAge(age);
+		
 		cus.setAddress(address);
 			
 		System.out.println(cus);
