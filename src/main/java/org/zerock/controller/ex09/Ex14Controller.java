@@ -1,10 +1,17 @@
 package org.zerock.controller.ex09;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import org.zerock.controller.ex03.Customer;
 import org.zerock.domian.ex01.CustomerDto;
 import org.zerock.domian.ex01.EmployeeDto;
@@ -72,6 +79,51 @@ public class Ex14Controller {
 		model.addAttribute("birthDate", birthDate);
 		
 		return "ex14/sub04";
+	}
+	
+	// insert 하는방법
+	@GetMapping("sub05")
+	public void method05() {
+		// form있는 jsp로 forward만 하기
+	}
+	
+	@PostMapping("sub05")
+	public String method06(CustomerDto customer, RedirectAttributes rttr) {
+		// 1.
+		// System.out.println(customer);
+		// Customer객체에 자동으로 set함
+		// 2. 
+		boolean ok = service.addCustomer(customer);
+		
+		// 3. 
+		if(ok) {
+			rttr.addFlashAttribute("message", "등록 완료");
+		}else {
+			rttr.addFlashAttribute("message", "등록 실패");
+		}
+		// 4.
+		return "redirect:/ex14/sub05";
+	}
+	
+	// 새 직원 입력해보는 것 만들기
+	@GetMapping("sub06")
+	public void method07(Model model) {
+		List<EmployeeDto> list = service.getRead();
+		model.addAttribute("employee", list);
+	}
+	
+	@PostMapping("sub06")
+	public String method08(EmployeeDto dto, RedirectAttributes rttr) {
+		boolean ok = service.setEmployee(dto);
+	    
+	    
+		if(ok) {
+			rttr.addFlashAttribute("message", "등록완료");
+		}else {
+			rttr.addFlashAttribute("message", "등록실패");
+		}
+		
+		return "redirect:/ex14/sub06";
 	}
 	
 	

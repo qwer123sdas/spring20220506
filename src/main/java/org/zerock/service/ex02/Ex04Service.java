@@ -2,6 +2,7 @@ package org.zerock.service.ex02;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -56,5 +57,19 @@ public class Ex04Service {
 		return birthDateStr;
 	}
 	//----------------------------------------------------
+
+	public boolean addCustomer(CustomerDto customer) {
+		int count = mapper.insertCustomer(customer);
+		return count == 1;
+	}
+
+	public boolean setEmployee(EmployeeDto dto) {
+		int count = mapper.insertEmployee(dto);
+		return count == 1;
+	}
+
+	public List<EmployeeDto> getRead() {
+		return mapper.selectEmployees();
+	}
 
 }
