@@ -15,7 +15,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>고객이름 : ${name }</h1>
-	<h1>${param.id }번 임원 이름 : ${firstName }</h1>
+	<h1>${param.id }번은 ${employee.firstName }  ${employee.lastName } 입니다.</h1>
+	<h1>${param.id }번은 ${fullName } 입니다.</h1>
+	<h1>생일 :  ${employee.birthDate }</h1>
+	<h1>생일 :  ${birthDate }</h1>
 </body>
 </html>

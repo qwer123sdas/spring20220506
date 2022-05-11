@@ -5,6 +5,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.zerock.controller.ex03.Customer;
+import org.zerock.domian.ex01.CustomerDto;
+import org.zerock.domian.ex01.EmployeeDto;
 import org.zerock.service.ex02.Ex04Service;
 
 @Controller
@@ -37,4 +40,39 @@ public class Ex14Controller {
 		
 		return "ex14/sub01";
 	}
+	
+	// /ex14/sub03?id=3
+	@RequestMapping("sub03")
+	public void method03(int id, Model model) {
+		CustomerDto dto = service.getCustomerInfoById(id);
+		
+		model.addAttribute("customer", dto);
+		
+	}
+	
+	// ex14/sub04?id=7
+	// 직원의 First NAme , LastName이 모두 Jsp로 출력되도록
+	@RequestMapping("sub04")
+	public void method04(int id, Model model) {
+		EmployeeDto dto = service.getEmployeeFullName(id);
+		model.addAttribute("employee", dto);
+	}
+	
+	@RequestMapping("sub041")
+	public String method041(int id, Model model) {
+		String fullName = service.getEmployeeFullNameTest(id);
+		model.addAttribute("fullName", fullName);
+		
+		return "ex14/sub04";
+	}
+	
+	@RequestMapping("sub042")
+	public String method042(int id, Model model) {
+		String birthDate = service.getLocalDate(id);
+		model.addAttribute("birthDate", birthDate);
+		
+		return "ex14/sub04";
+	}
+	
+	
 }
