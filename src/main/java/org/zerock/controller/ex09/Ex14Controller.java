@@ -3,6 +3,7 @@ package org.zerock.controller.ex09;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.zerock.service.ex02.Ex04Service;
 
@@ -30,8 +31,10 @@ public class Ex14Controller {
 	// mapper에도 메소드 추가 하기
 	@RequestMapping("sub02")
 	public String method02(int id, Model model) {
-		String firstName = service.employeeFirstName(id);
+		String firstName = service.getEmployeeFirstName(id);
+		
 		model.addAttribute("firstName", firstName);
+		
 		return "ex14/sub01";
 	}
 }

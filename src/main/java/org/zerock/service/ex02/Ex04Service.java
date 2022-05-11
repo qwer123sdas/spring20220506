@@ -15,9 +15,9 @@ public class Ex04Service {
 		return name;
 	}
 
-	public String employeeFirstName(int id) {
-		String FirstName = mapper.selectFirstName(id);
-		return FirstName;
+	public String getEmployeeFirstName(int id) {
+		String firstName = mapper.selectFirstName(id);
+		return firstName;
 	}
 
 }
