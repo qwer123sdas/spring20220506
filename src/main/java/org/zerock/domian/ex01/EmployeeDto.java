@@ -13,7 +13,7 @@ public class EmployeeDto {
 	private String lastName;
 	
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
-	private String birthDate;
+	private LocalDate birthDate;
 	
 	private String photo;
 	private String notes;

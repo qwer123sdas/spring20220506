@@ -43,6 +43,7 @@
 				<td>${employee.employeeID }</td>
 				<td>${employee.firstName }</td>
 				<td>${employee.lastName }</td>
+				<td>${employee.birthDate }</td>
 				<td>$[employee.photo }</td>
 				<td>${employee.notes }</td>
 			</tr> 
