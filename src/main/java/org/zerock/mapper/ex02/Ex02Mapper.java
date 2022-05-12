@@ -3,6 +3,7 @@ package org.zerock.mapper.ex02;
 import java.util.List;
 
 import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.zerock.controller.ex03.Customer;
 import org.zerock.domian.ex01.CustomerDto;
@@ -31,9 +32,32 @@ public interface Ex02Mapper {
 	int insertEmployee(EmployeeDto dto);
 
 	
-	@Select("SELECT EmployeeID, LastName, FirstName,BirthDate, Photo, Notes FROM Employees ORDER BY EmployeeID")
+	@Select("SELECT EmployeeID id, LastName, FirstName,BirthDate, Photo, Notes FROM Employees ORDER BY EmployeeID")
 	List<EmployeeDto> selectEmployees();
+	
+	@Select("SELECT CustomerID id, CustomerName, ContactName, Address, City, PostalCode Country "
+			+ "FROM Customers "
+			+ "ORDER BY CustomerID "
+			+ "LIMIT #{page}, 10")
+	List<CustomerDto> readCustomer(int page);
+	@Select("SELECT COUNT(*) FROM Customers")
+	int getTotal();
 
+	
+	// 
+	@Select("SELECT CustomerID id, CustomerName, "
+			+ "ContactName, "
+			+ "Address, "
+			+ "City, PostalCode, "
+			+ "Country "
+			+ "FROM Customers "
+			+ "LIMIT #{from }, #{row }")  // 파라미터가 2개일 땐 안됨, 파라미터명이 변경됨. 그래서  @Param을 통해 유지시켜줘야함
+	List<CustomerDto> listCustomerPage(@Param("from") int from, @Param("row") int row);
+	
+	@Select("SELECT COUNT(CustomerID) FROM Customers")
+	int countCustomers();
+
+	
 	
 	
 }

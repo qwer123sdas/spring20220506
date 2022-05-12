@@ -71,5 +71,26 @@ public class Ex04Service {
 	public List<EmployeeDto> getRead() {
 		return mapper.selectEmployees();
 	}
+	
+	
+	public List<CustomerDto> getCustomerList(int page) {
+		/* 페이징 처리 전 구역 정하기---------------------------------- */
+		int startRowNum = (page - 1) * 10;
+		return mapper.readCustomer(startRowNum);
+	}
+	
+	public int getTotal() {
+		return mapper.getTotal();
+	}
+
+	//////////
+	public List<CustomerDto> listCustomerPage(int page, int rowPerPage) {
+		int from = (page - 1) * rowPerPage;
+		return mapper.listCustomerPage(from, rowPerPage);
+	}
+
+	public int countCustomers() {
+		return mapper.countCustomers();
+	}
 
 }

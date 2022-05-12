@@ -40,11 +40,11 @@
 		<tbody>
 			<c:forEach items="${employee }" var="employee" >
 			<tr>
-				<td>${employee.employeeID }</td>
+				<td>${employee.id }</td>
 				<td>${employee.firstName }</td>
 				<td>${employee.lastName }</td>
 				<td>${employee.birthDate }</td>
-				<td>$[employee.photo }</td>
+				<td>${employee.photo }</td>
 				<td>${employee.notes }</td>
 			</tr> 
 			</c:forEach>
