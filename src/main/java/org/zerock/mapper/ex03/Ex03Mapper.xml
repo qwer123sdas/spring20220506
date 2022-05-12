@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.zerock.mapper.ex03.Ex03Mapper">
+<!-- @Select가 <select>가 된 것. id에 메소드명, resultType에 메소드의 리턴타입(소문자도 가능)-->
+  <select id="selectCustomerNameById" resultType="String">
+    SELECT CustomerName FROM Customers WHERE CustomerId = #{id}
+  </select>
+  
+  <select id="selectEmployeeFirstNameById" resultType="String">
+  	SELECT FirstName FROM Employees WHERE EmployeeId = #{id}
+  </select>
+  
+  <select id="selectBoard" resultType="org.zerock.domian.ex02.BoardDto">
+  	SELECT id, title, body, inserted
+  	FROM Board
+  	ORDER BY id DESC
+  </select>
+  
+  <select id="getBoard" resultType="org.zerock.domian.ex02.BoardDto">
+  	SELECT id, title, body, inserted
+  	FROM Board
+  	WHERE id = #{id}
+  </select>
+  
+  <!-- insert -->
+
+  <!-- update --> <!-- resultType생략가능 -->
+   <update id="updateBoard" >
+    UPDATE Board
+    SET title = #{title},
+        body = #{body}
+    WHERE id = #{id}
+  </update>
+  <!-- delete -->
+</mapper>
