@@ -19,6 +19,11 @@ public class E15Controller {
 	@Autowired
 	private Ex05Service service;
 	
+	E15Controller(){}
+	/*
+	 * @Autowired E15Controller(Ex05Service service){ this.service = service; }
+	 */
+	
 	@RequestMapping("sub01")
 	public String method01(int id, Model model) {
 		String name = service.getCustomerNameById(id);
