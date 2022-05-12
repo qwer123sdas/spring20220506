@@ -31,7 +31,7 @@ public interface Ex02Mapper {
 	int insertEmployee(EmployeeDto dto);
 
 	
-	@Select("SELECT LastName, FirstName,BirthDate, Photo, Notes FROM Employees ORDER BY EmployeeID")
+	@Select("SELECT EmployeeID, LastName, FirstName,BirthDate, Photo, Notes FROM Employees ORDER BY EmployeeID")
 	List<EmployeeDto> selectEmployees();
 
 	
