@@ -26,7 +26,7 @@
 		<button>등록</button>
 	</form>
 	
-	<table class="table_tbody">
+	<table class="table">
 		<thead>
 			<tr>
 				<th>EmployeeID</th>
@@ -38,7 +38,7 @@
 			</tr>
 		</thead>
 		<tbody>
-		<c:forEach items="${employee }" var="employee" >
+			<c:forEach items="${employee }" var="employee" >
 			<tr>
 				<td>${employee.employeeID }</td>
 				<td>${employee.firstName }</td>
@@ -47,11 +47,19 @@
 				<td>$[employee.photo }</td>
 				<td>${employee.notes }</td>
 			</tr> 
-		</c:forEach>
+			</c:forEach>
 		</tbody>
 	</table>
 	
-	
+	<c:url value="/ex14/sub06" var="employeeUrl"></c:url>
+	<h1>직원 등록</h1>
+	 <form action="${employeeUrl }" method="post">
+	 	First Name : <input type="text" name="firstName"/>
+	 	last Name : <input type="text" name="lastName"/>
+	 	photo : <input type="text" 	name="photo"/> <br />
+	 	Notes : <textarea name= "notes" rows="30" cols="10"></textarea>
+	 	<button>등록</button>
+	 </form>
 	
 </body>
 </html>
