@@ -12,6 +12,8 @@ DESC Employees;
 ALTER TABLE Employees MODIFY COLUMN EmployeeID INT PRIMARY KEY AUTO_INCREMENT;
 
 SELECT * FROM Customers;
-SELECT * FROM Employees;
+SELECT * FROM Employees ORDER BY EmployeeID DESC;
+
+SELECT * FROM Customers ORDER BY CustomerID DESC;
 
 
