@@ -47,6 +47,7 @@ public class E15Controller {  	// 게시판 컨트롤러
 	@GetMapping("board/list")
 	public void listBoard(Model model) {
 		List<BoardDto>list = service.listBoard();
+		
 		model.addAttribute("boardList", list);
 		//System.out.println(list.size());
 	}

@@ -12,4 +12,6 @@ public interface Ex04Mapper {
 
 	int deleteReplyById(int id);
 
+	int updateReply(ReplyDto reply);
+
 }

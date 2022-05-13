@@ -2,6 +2,7 @@ package org.zerock.controller.ex10;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.zerock.domain.ex02.ReplyDto;
@@ -24,6 +25,13 @@ public class Ex16Controller { // 댓글 커너트롤러
 	@PostMapping("reply/remove")
 	public String removeReply(ReplyDto reply) {
 		boolean success = service.removeReplyById(reply.getId());
+		
+		return "redirect:/ex15/board/" + reply.getBoardId();
+	}
+	
+	@PostMapping("reply/modify")
+	public String modifyReply(@ModelAttribute ReplyDto reply) {
+		boolean success = service.modifyReply(reply);
 		
 		return "redirect:/ex15/board/" + reply.getBoardId();
 	}

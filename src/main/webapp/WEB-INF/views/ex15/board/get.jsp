@@ -50,6 +50,15 @@
 		<c:forEach items="${replyList }" var="reply">
 			<div style="border: 1px solid black; margin-bottom: 3px;">
 				${reply.inserted } : ${reply.content }
+				<!-- 수정  -->
+				<c:url value="/ex16/reply/modify" var="replyModifyLink"></c:url>
+				<form action="${replyModifyLink }" method="post">
+					<input type="hidden" name="id" value="${reply.id }"/>
+					<input type="hidden" name="boardId" value="${boardDto.id }"/>
+					<input type="text" value="${reply.content }" name="content"/>
+					<button>수정</button>
+				</form>
+				<!-- t삭제 -->
 				<c:url value="/ex16/reply/remove" var="replyRemoveLink" />
 				<form action="${replyRemoveLink }" method="post">
 					<input type="hidden" name="id" value="${reply.id }"/>
