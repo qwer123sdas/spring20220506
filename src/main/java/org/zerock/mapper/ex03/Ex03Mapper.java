@@ -16,4 +16,6 @@ public interface Ex03Mapper {
 
 	int updateBoard(BoardDto board);
 
+	int deleteBoard(int id);
+
 }
