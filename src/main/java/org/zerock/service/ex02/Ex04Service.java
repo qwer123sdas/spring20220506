@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
 import org.zerock.controller.ex03.Customer;
-import org.zerock.domian.ex01.CustomerDto;
-import org.zerock.domian.ex01.EmployeeDto;
+import org.zerock.domain.ex01.CustomerDto;
+import org.zerock.domain.ex01.EmployeeDto;
 import org.zerock.mapper.ex02.Ex02Mapper;
 
 import com.sun.scenario.effect.Blend.Mode;

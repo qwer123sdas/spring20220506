@@ -1,4 +1,4 @@
-package org.zerock.domian.ex02;
+package org.zerock.domain.ex02;
 
 import java.time.LocalDateTime;
 

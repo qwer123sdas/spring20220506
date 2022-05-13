@@ -2,7 +2,7 @@ package org.zerock.mapper.ex03;
 
 import java.util.List;
 
-import org.zerock.domian.ex02.BoardDto;
+import org.zerock.domain.ex02.BoardDto;
 
 public interface Ex03Mapper {
 	
@@ -17,5 +17,7 @@ public interface Ex03Mapper {
 	int updateBoard(BoardDto board);
 
 	int deleteBoard(int id);
+
+	int insertBoard(BoardDto boardDto);
 
 }
