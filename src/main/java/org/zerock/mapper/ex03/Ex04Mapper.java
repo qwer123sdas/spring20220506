@@ -14,4 +14,7 @@ public interface Ex04Mapper {
 
 	int updateReply(ReplyDto reply);
 
+	// 게시글 지우기 전 댓글 지우기
+	void deleteReplyByBoard(int boardId);
+
 }

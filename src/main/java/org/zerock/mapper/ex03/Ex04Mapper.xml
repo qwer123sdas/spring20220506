@@ -27,10 +27,17 @@
 	WHERE id = #{id}
 </delete>
 
+<delete id="deleteReplyByBoard">
+	DELETE FROM Reply
+	WHERE board_id = #{boardId } 
+</delete>
+
 <!-- update -->
 <update id="updateReply">
 	UPDATE Reply
 	SET content = #{content }
 	WHERE id = #{id }
 </update>
+
+
 </mapper>

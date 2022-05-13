@@ -20,10 +20,10 @@
 <body>
 	<h1>${boardDto.id }번 게시물</h1>
 	
-	<c:url value="/ex15/board/modify" var="modifyLink"></c:url>
+	<%-- <c:url value="/ex15/board/modify" var="modifyLink"></c:url> --%>
+	<%-- <form action="modifyLink" method="post"> --%>
 	
-	
-	<form action="${modifyLink }" method="post">
+	<form action="${appRoot }/ex15/board/modify" method="post">
 	<input type="hidden" name="id" value="${boardDto.id }"/>
 	제목 : <input type="text" value="${boardDto.title }" name="title" /> <br />
 	본문 : <textarea cols="30" rows="10" name="body" >${boardDto.body } </textarea> <br />
