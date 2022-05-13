@@ -19,19 +19,18 @@ public class PageInfoDto {
 		this.left = current - 3;
 	}
 	public int getLeft() {
+		if(current < 4 ) {
+			return 1;
+		}
 		return Math.max(current - 3, 1);
 	}
 	
 	public int getRight() {
-		if(left == -2) {
-			return Math.min(current + 5, end);
-		}else if(left == -1){
-			return current + 4;
-		}else if(left == 0){
-			return current + 3;
-		}else {
-			return Math.min(current + 3, end);
+		if(current < 4) {
+			return 7;
 		}
+		return Math.min(current + 3, end);
+
 	}
 	
 	public void setEnd(int end) {
