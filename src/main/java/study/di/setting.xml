@@ -6,19 +6,38 @@
 	xmlns:util="http://www.springframework.org/schema/util"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 	
+	<!-- <context:component-scan base-package="study.di.ui, spring.di.entity"></context:component-scan> -->
+	
+	<bean id="target" class="study.di.entity.NewlecExam" p:kor="1" p:eng="1" p:math="1" p:com="1"></bean>
+	<bean id="LogAroundAdvice" class="study.aop.advice.LogAroundAdvice" />
+	<bean id="LogBeforeAdvice" class="study.aop.advice.LogBeforeAdvice" />
+	<bean id="LogAfterReturningAdvice" class="study.aop.advice.LogAfterReturningAdvice" />
+	<bean id="LogAfterThrowingAdvice" class="study.aop.advice.LogAfterReturningAdvice" />
+	<bean id="exam" class="org.springframework.aop.framework.ProxyFactoryBean">
+		<property name="target" ref="target"></property>
+		<property name="interceptorNames">
+			<list>
+				<value>logAroundAdvice</value>
+				<value>logBeforeAdvice</value>
+				<value>logAfterReturningAdvice</value>
+				<value>logAfterThrowingAdvice</value>
+			</list>
+		</property>
+	</bean>
+	
 	<!-- Exam exam = new NewledcExam() -->
-	<bean id="exam" class="study.di.entity.NewlecExam">
+<!-- 	<bean id="exam" class="study.di.entity.NewlecExam">
 		<property name="kor" value="10"></property>
 		<property name="eng" value="10"></property>
 		<property name="math" value="10"></property>
 		<property name="com" value="10"></property>
-	</bean>
+	</bean> -->
 	
 	<!-- ExamConsole console = new GridExamConsole() -->
-	<bean id="console" class="study.di.ui.GridExamConsole">
-		<!--console.setExam(exam)  -->
-		<!-- <property name="exam" ref="exam"></property> -->
-	</bean>
+<!-- 	<bean id="console" class="study.di.ui.GridExamConsole">
+		console.setExam(exam) 
+		<property name="exam" ref="exam"></property>
+	</bean> -->
 	
 	<!--  -->
 	<!--  -->
@@ -30,10 +49,10 @@
 			</list>
 		</constructor-arg>
 	</bean> -->
-	<util:list id="exams" list-class="java.util.ArrayList">
+<!-- 	<util:list id="exams" list-class="java.util.ArrayList">
 		<bean class="study.di.entity.NewlecExam" p:kor="10" p:eng="10"></bean>
 		<ref bean="exam"></ref>
-	</util:list>
+	</util:list> -->
 	
 	
 </beans>
