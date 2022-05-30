@@ -89,4 +89,4 @@ DELETE FROM Member WHERE Member_No=16;
 SELECT NOW();
 DESC Board;
 
-
+SELECT * FROM mydb6.Member;
