@@ -90,3 +90,29 @@ SELECT NOW();
 DESC Board;
 
 SELECT * FROM mydb6.Member;
+
+USE mydb5;
+DESC Member;
+CREATE TABLE `SNS_INFO` (
+  `Member_NO` int(11) NOT NULL,
+  `sns_id` varchar(255) NOT NULL,
+  `sns_type` varchar(10)  NULL,
+  `sns_name` varchar(255)  NULL,
+  `sns_profile` varchar(255)  NULL,
+  `sns_connect_date` datetime  NULL,
+  CONSTRAINT `id` FOREIGN KEY (Member_NO) REFERENCES Member (Member_NO)
+);
+USE mydb5;
+SELECT * FROM Member;
+SELECT * FROM Auth;
+SELECT * FROM SNS_INFO;
+DESC Member;
+
+ALTER TABLE Member
+ADD enable INTEGER(2) DEFAULT 1;
+
+ALTER TABLE Auth
+DROP enable;
+
+
+
