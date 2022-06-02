@@ -113,6 +113,83 @@ ADD enable INTEGER(2) DEFAULT 1;
 
 ALTER TABLE Auth
 DROP enable;
+USE mydb5;
+SELECT * FROM Member;
+
+DELIMITER $$ 
+CREATE PROCEDURE `deletUser`(
+	memberNO INTEGER
+)
+
+BEGIN 
+	DELETE FROM Auth
+    WHERE Member_NO = memberNO;
+    
+    INSERT INTO Member_Delet
+	(SELECT *, NOW()  FROM Member WHERE Member_NO = memberNO);
+    
+    DELETE FROM Member
+    WHERE Member_NO = memberNO;
+    
+	
+END $$
+DELIMITER ;
+
+SHOW CREATE PROCEDURE deletUser;
+
+-- DROP PROCEDURE deletUser;
+
+SELECT * FROM Member;
+
+CALL deletUser(8);
+
+CREATE TABLE Member_Delet LIKE Member;
+
+DESC Member_Delet;
+DROP TABLE Member_Delete;
 
 
+AlTER  TABLE Member_Delet
+ADD Member_Delet_Day DATE;
+
+SELECT * FROM Member_Delet;
+
+-- 이벤트 스케쥴러
+SHOW VARIABLES LIKE 'event%';
+SET GLOBAL event_scheduler = ON;
+SET @@global.event_scheduler = ON; 
+
+DELIMITER $$
+CREATE PROCEDURE `deletUserTable`(
+	Today DATE
+)
+BEGIN
+	DELETE FROM Member_Delet
+    WHERE Member_Delet_Day < DATE_SUB(Today, INTERVAL 1 DAY);
+
+END $$
+DELIMITER ;
+-- DROP PROCEDURE deletUserTable;
+
+
+UPDATE Member_Delet
+SET Member_Delet_Day = '2022-06-01'
+WHERE Member_NO = 8;
+
+CREATE EVENT IF NOT EXISTS `deletUserTable`
+ON SCHEDULE
+EVERY 1 DAY
+STARTS '2022-06-01 12:30:00'
+DO
+CALL deletUserTable(NOW());
+
+
+
+
+
+SELECT * FROM Member_Delet.event;
+
+SELECT * FROM information_schema.EVENTS;
+SHOW EVENTS;
+-- DROP event `이벤트명` ;
 
