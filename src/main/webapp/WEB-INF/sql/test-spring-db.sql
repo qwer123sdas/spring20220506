@@ -173,13 +173,13 @@ DELIMITER ;
 
 
 UPDATE Member_Delet
-SET Member_Delet_Day = '2022-06-01'
+SET Member_Delet_Day = '2022-05-31'
 WHERE Member_NO = 8;
 
 CREATE EVENT IF NOT EXISTS `deletUserTable`
 ON SCHEDULE
 EVERY 1 DAY
-STARTS '2022-06-01 12:30:00'
+STARTS '2022-06-01 12:45:00'
 DO
 CALL deletUserTable(NOW());
 
@@ -187,9 +187,10 @@ CALL deletUserTable(NOW());
 
 
 
-SELECT * FROM Member_Delet.event;
+SELECT * FROM Member_Delet;
 
 SELECT * FROM information_schema.EVENTS;
 SHOW EVENTS;
--- DROP event `이벤트명` ;
+
+DROP event `deletUserTable` ;
 
