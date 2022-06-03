@@ -194,3 +194,11 @@ SHOW EVENTS;
 
 DROP event `deletUserTable` ;
 
+USE mydb5;
+
+UPDATE Member
+SET Member_Email = 'khs1107y@naver.com'
+WHERE Member_ID = 'gwA3Tu3s0VYlS3NGU6c5FdzEnba0H1RoWB5yn33wja8';
+
+SELECT * FROM Member;
+
