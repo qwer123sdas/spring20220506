@@ -202,3 +202,28 @@ WHERE Member_ID = 'gwA3Tu3s0VYlS3NGU6c5FdzEnba0H1RoWB5yn33wja8';
 
 SELECT * FROM Member;
 
+CREATE TABLE File(
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	board_id INT NOT NULL REFERENCES Board(id),
+    fileName VARCHAR(255) NOT NULL
+);
+
+DROP TABLE File;
+
+USE mydb5;
+SELECT * FROM Member;
+DESC mydb6.Board;
+DESC Member;
+DESC Board;
+SELECT * FROM Board;
+SELECT * FROM Auth;
+
+ALTER TABLE Board
+ADD member_id VARCHAR(20) NOT NULL DEFAULT '1111' REFERENCES Member(Member_ID);
+ALTER TABLE Board
+MODIFY COLUMN member_id VARCHAR(50) NOT NULL;
+
+DESC Reply;
+
+
+
